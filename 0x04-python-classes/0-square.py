@@ -12,4 +12,3 @@ class Square:
             ``Args`` section don't include `self` parameter.
         """
         self.__size = size
-
