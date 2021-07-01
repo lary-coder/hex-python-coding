@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-"""This module creates a script that adds args to Python list and saves them"""
-
-from os import path
+""" script that adds all args to a python list and saves them to a file"""
 from sys import argv
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
+import json
 
-if path.exists("add_item.json") is False:
-    save_to_json_file([], "add_item.json")
-my_list = load_from_json_file("add_item.json")
-for i in range(1, len(argv)):
-    my_list.append(argv[i])
-save_to_json_file(my_list, "add_item.json")
+
+load_from_json_file = __import__('4-load_from_json_file').load_from_json_file
+save_to_json_file = __import__('3-save_to_json_file').save_to_json_file
+try:
+    py_list = load_from_json_file("add_item.json")
+except FileNotFoundError:
+    py_list = []
+    save_to_json_file(py_list, "add_item.json")
+for arg in argv[1:]:
+    py_list.append(arg)
+save_to_json_file(py_list, "add_item.json")
