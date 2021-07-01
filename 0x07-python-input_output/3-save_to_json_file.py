@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 # 3-save_to_json_file.py
 # Laryssa Ribeiro
