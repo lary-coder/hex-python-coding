@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-"""Load, add, save module"""
+"""
+script to save and load
+"""
+import sys
 
+save_json = __import__('3-save_to_json_file').save_to_json_file
+load_json = __import__('4-load_from_json_file').load_from_json_file
 
-from sys import argv
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
-
-filename = "add_item.json"
-
+file = "add_item.json"
 try:
-    my_list = load_from_json_file(filename)
-except:
-    my_list = []
-for a in range(1, len(argv)):
-    my_list.append(argv[a])
-save_to_json_file(my_list, filename)
+    new = load_json(file)
+except (ValueError, FileNotFoundError):
+    new = []
+for args in sys.argv[1:]:
+    new.append(args)
+save_json(new, file)
