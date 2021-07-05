@@ -3,8 +3,8 @@
 import json
 from sys import argv
 
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
+save_to_json_file = __import__('3-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('4-load_from_json_file').load_from_json_file
 
 
 f = 'add_item.json'
