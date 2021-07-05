@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """Define the writing json strings to a text file"""
 
